@@ -207,6 +207,8 @@ GEM
     sqlite3 (1.6.3-x64-mingw-ucrt)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
+    strong_migrations (1.6.1)
+      activerecord (>= 5.2)
     thor (1.2.2)
     timeout (0.4.0)
     turbo-rails (1.4.0)
@@ -252,6 +254,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  strong_migrations
   turbo-rails
   tzinfo-data
   web-console

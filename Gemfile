@@ -73,3 +73,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# strong migration gem https://github.com/ankane/strong_migrations
+gem "strong_migrations"
