@@ -6,5 +6,6 @@
   <%= link_to "Edit this comment", edit_topic_post_comment_path(params[:topic_id], params[:post_id], @comment) %> |
   <%= link_to "Back to comments", topic_post_comments_path(params[:topic_id], params[:post_id]) %>
 
-  <%= button_to "Destroy this comment", topic_post_comment_path(params[:topic_id], params[:post_id], @comment), method: :delete %>
+  <%= button_to "Destroy this comment", topic_post_comment_path(params[:topic_id], params[:post_id], @comment),
+                method: :delete, data:{turbo_confirm: 'Are you sure'} %>
 </div>

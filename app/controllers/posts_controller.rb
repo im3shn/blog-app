@@ -4,7 +4,9 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    if params[:topic_id].present?
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    elsif params[:topic_id].present?
       @posts = @topic.posts
     else
       @posts = Post.all
@@ -74,6 +76,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:headline, :content, :topic_id)
+      params.require(:post).permit(:headline, :content, :topic_id, tag_ids: [])
     end
 end
