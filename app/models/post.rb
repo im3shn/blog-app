@@ -10,4 +10,10 @@ class Post < ApplicationRecord
   def self.tagged_with(name)
     Tag.find_by(name: name).posts
   end
+
+  def self.post_topic(topic ="")
+    if topic.present?
+      topic.name + ' -'
+    end
+  end
 end

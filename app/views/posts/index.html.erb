@@ -1,15 +1,3 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Posts</h1>
-
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", topic_post_path(post.topic_id, post) %>
-    </p>
-  <% end %>
-</div>
-<% if params[:topic_id]%>
-<%= link_to "New post", new_topic_post_path(params[:topic_id]) %>
-<%end %>
+<%=render 'list_posts'%>

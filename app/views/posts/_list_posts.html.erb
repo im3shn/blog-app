@@ -1,0 +1,13 @@
+
+<h1><%=Post.post_topic(@topic) %> Posts</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <div>
+      <%= link_to (render post) , topic_post_path(post.topic_id, post) %>
+    </div>
+  <% end %>
+</div>
+<% if params[:topic_id]%>
+  <%= link_to "New post", new_topic_post_path(params[:topic_id]) %>
+<%end %>
