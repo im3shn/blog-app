@@ -25,12 +25,21 @@
 </div>
 
 <!--tags-->
-<td>
-  <small>
+<small>
     <%=
       raw @post.tags.map(&:name).map {
         |t| link_to ('#').concat(t), list_tagged_posts_path(t)
       }.join(' ')
     %>
-  </small>
-</td>
+</small>
+
+<!--ratings-->
+<span>
+    <%@post.ratings.group(:value).count.each do |key, value| %>
+      <p><%= key %> star present <%= value %> times</p>
+    <% end %>
+</span>
+<div>
+  <h2><strong>Add new rating</strong></h2>
+  <%= render 'ratings/form', rating: Rating.new %>
+</div>

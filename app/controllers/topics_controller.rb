@@ -8,7 +8,7 @@ class TopicsController < ApplicationController
 
   # GET /topics/1 or /topics/1.json
   def show
-    @posts = @topic.posts
+    @pagy, @posts = pagy(@topic.posts)
   end
 
   # GET /topics/new

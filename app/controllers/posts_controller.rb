@@ -5,12 +5,13 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     if params[:tag]
-      @posts = Post.tagged_with(params[:tag])
+      @posts = pagy(Post.tagged_with(params[:tag]))
     elsif params[:topic_id].present?
-      @posts = @topic.posts
+      @posts = pagy(@topic.posts)
     else
-      @posts = Post.all
+      @posts = pagy(Post.all)
     end
+    @pagy = @posts
   end
 
   # GET /posts/1 or /posts/1.json

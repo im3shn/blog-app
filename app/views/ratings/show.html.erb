@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @rating %>
+
+<div>
+  <%= link_to "Edit this rating", edit_topic_post_rating_path(params[:topic_id], params[:post_id], @rating) %> |
+  <%= link_to "Back to ratings", topic_post_ratings_path(params[:topic_id], params[:post_id]) %>
+
+  <%= button_to "Destroy this comment", topic_post_rating_path(params[:topic_id], params[:post_id], @rating),
+                method: :delete, data:{turbo_confirm: 'Are you sure'} %>
+</div>
