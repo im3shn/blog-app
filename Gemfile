@@ -77,3 +77,5 @@ end
 # strong migration gem https://github.com/ankane/strong_migrations
 # gem "strong_migrations"
 gem 'pagy'
+
+gem 'devise'
