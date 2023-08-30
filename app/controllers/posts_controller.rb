@@ -64,6 +64,11 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def read_unread
+    @post.users << current_user
+    head :ok
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

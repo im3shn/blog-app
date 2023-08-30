@@ -1,6 +1,10 @@
 <p style="color: green"><%= notice %></p>
-
 <!--post-->
+
+<p data-controller="posts" id="read" ></p>
+<%= hidden_field_tag :topic_id, params[:topic_id] %>
+<%= hidden_field_tag :post_id, params[:id] %>
+<%= hidden_field_tag :read_status ,Post.post_read_status(@post, current_user) %>
 <%= render @post %>
 
 <div>

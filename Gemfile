@@ -79,3 +79,5 @@ end
 gem 'pagy'
 gem 'devise'
 gem 'cancancan'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'tags/list/:tag', to: 'posts#index', as: :list_tagged_posts
   resources :topics do
     resources :posts do
+      post "read_unread", on: :member
       resources :comments
       resources :ratings
     end
