@@ -3,7 +3,15 @@
 
 <div id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
+    <p>
+      <strong>Headline:</strong>
+      <%= post.headline %>
+    </p>
+
+    <p>
+      <strong>Content:</strong>
+      <%= truncate post.content,length: 50, omission: '...Read More' %>
+    </p>
     <p>
       <%= link_to "Show this post", topic_post_path(post.topic, post) %>
     </p>
@@ -16,3 +24,4 @@
 <div>
   <%= pagy_nav(@pagy).html_safe%>
 </div>
+

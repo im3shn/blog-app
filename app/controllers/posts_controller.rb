@@ -1,17 +1,17 @@
 class PostsController < ApplicationController
   before_action :set_topic
   before_action :set_post, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /posts or /posts.json
   def index
     if params[:tag]
-      @posts = pagy(Post.tagged_with(params[:tag]))
+      @pagy, @posts = pagy(Post.tagged_with(params[:tag]))
     elsif params[:topic_id].present?
-      @posts = pagy(@topic.posts)
+      @pagy, @posts = pagy(@topic.posts)
     else
-      @posts = pagy(Post.all)
+      @pagy, @posts = pagy(Post.all)
     end
-    @pagy = @posts
   end
 
   # GET /posts/1 or /posts/1.json
@@ -30,6 +30,7 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = @topic.posts.build(post_params)
+    @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
         format.html { redirect_to topic_post_url(@topic,@post), notice: "Post was successfully created." }
