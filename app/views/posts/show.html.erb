@@ -15,8 +15,9 @@
 <div>
   <div>
     <% @post.comments.each do |comment| %>
-      <%= link_to render('comments/comment', comment: comment),
-                  topic_post_comment_path(params[:topic_id], @post, comment) %>
+      <div><%= link_to comment.content ,
+                  topic_post_comment_path(params[:topic_id], @post, comment) %>|-
+      <%=comment.user.email %></div>
     <% end %>
   </div>
   <div>
