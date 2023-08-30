@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :post_image, style: "display: block" %>
+    <%= form.file_field :post_image %>
+  </div>
+
+  <div>
     <%= form.label :tag_ids %>
     <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name  %>
   </div>

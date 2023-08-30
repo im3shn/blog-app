@@ -9,8 +9,8 @@
     </p>
   <% end %>
 </div>
-<% if params[:topic_id]%>
-  <%= link_to "New post", new_topic_post_path(params[:topic_id]) %>
+<% if @topic.present?%>
+  <%= link_to "New post", new_topic_post_path(@topic) %>
 <%end %>
 
 <div>

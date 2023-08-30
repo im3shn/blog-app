@@ -9,4 +9,10 @@
     <%= post.content %>
   </p>
 
+  <p>
+    <%if post.post_image.attached? %>
+      <%=image_tag post.post_image, style: "width: 300px; height: 100px"  %>
+    <%end %>
+  </p>
+
 </div>
