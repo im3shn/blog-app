@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   has_one_attached :post_image
   has_and_belongs_to_many :users
 
-  validates :headline, presence: true
+  validates :headline, presence: true, length: {maximum: 20}
   validates :content, presence: true
 
 

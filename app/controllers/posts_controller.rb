@@ -29,6 +29,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
+    sleep 0.5
     @post = @topic.posts.build(post_params)
     @post.user_id = current_user.id
     respond_to do |format|
@@ -39,7 +40,7 @@ class PostsController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
-        format.js
+        format.js {flash.now[:error] = @post.errors.full_messages}
       end
     end
   end

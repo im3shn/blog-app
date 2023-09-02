@@ -1,5 +1,6 @@
+$('#loader').hide()
 <% if @post.errors.any? %>
-alert("error");
+alert("ERROR(S):\n<%= escape_javascript raw @post.errors.full_messages.join("\n") %>");
 <%else %>
 alert("success");
 $("#posts").append("<%= escape_javascript render('posts/post_container', post:@post) %>")

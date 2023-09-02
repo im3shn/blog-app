@@ -14,3 +14,13 @@
  *= require_self
  */
 @import "jquery-ui.css";
+
+#loader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background: url("https://i.gifer.com/ZKZg.gif") 50% 50% no-repeat rgb(15 10 10 /59%);
+}
