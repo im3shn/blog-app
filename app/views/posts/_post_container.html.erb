@@ -1,0 +1,13 @@
+<p>
+  <%= Post.post_read_status(post, current_user) %>
+</p>
+<p>
+  <strong>Headline:</strong>
+  <%= post.headline %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= truncate post.content,length: 50, omission: '...Read More' %>
+</p>
+<%=link_to "Show this post" , topic_post_path(post.topic, post)%>
