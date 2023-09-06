@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>User comment ratings</h1>
+
+<!--<div id="user_comment_ratings">-->
+  <%# @user_comment_ratings.each do |user_comment_rating| %>
+    <%#= render user_comment_rating %>
+<!--    <p>-->
+      <%#= link_to "Show this user comment rating", topic_post_comment_user_comment_rating_path(@topic, @post, params[:comment_id], user_comment_rating) %>
+<!--    </p>-->
+  <%# end %>
+<!--</div>-->
+<p>-----------------------------------------------------------------------------------------------</p>
+<%=render 'ratings_by_user', users: @users%>
+<p>-----------------------------------------------------------------------------------------------</p>
+
+<%= link_to "New user comment rating", new_topic_post_comment_user_comment_rating_path(params[:comment_id]) %>

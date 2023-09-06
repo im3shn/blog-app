@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   resources :topics do
     resources :posts do
       post "read_unread", on: :member
-      resources :comments
       resources :ratings
+      resources :comments do
+        resources :user_comment_ratings
+      end
     end
   end
 

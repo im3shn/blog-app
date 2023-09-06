@@ -21,7 +21,10 @@
     <% @post.comments.each do |comment| %>
       <div><%= link_to comment.content ,
                   topic_post_comment_path(params[:topic_id], @post, comment) %>|-
-      <%=comment.user.email %></div>
+      <%=comment.user.email %>|<%=link_to "See Ratings" , topic_post_comment_user_comment_ratings_path(@post.topic.id, @post, comment.id)%></div>
+      <div>
+        <%= render "user_comment_ratings/form", comment: comment, user_comment_rating: current_user.user_comment_ratings.new%>
+      </div>
     <% end %>
   </div>
   <div>

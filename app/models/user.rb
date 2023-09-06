@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_and_belongs_to_many :posts
+  has_many :user_comment_ratings
+  has_many :comments, through: :user_comment_ratings
 end

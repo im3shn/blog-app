@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_topic
   before_action :set_post, only: %i[ show edit update destroy ]
   load_and_authorize_resource
+  skip_authorize_resource :only => :read_unread
 
   # GET /posts or /posts.json
   def index

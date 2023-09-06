@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_30_104348) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_060253) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -92,6 +92,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_104348) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_comment_ratings", force: :cascade do |t|
+    t.integer "value"
+    t.integer "comment_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_user_comment_ratings_on_comment_id"
+    t.index ["user_id"], name: "index_user_comment_ratings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -109,4 +119,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_104348) do
   add_foreign_key "comments", "posts"
   add_foreign_key "posts", "topics"
   add_foreign_key "ratings", "posts"
+  add_foreign_key "user_comment_ratings", "comments"
+  add_foreign_key "user_comment_ratings", "users"
 end
