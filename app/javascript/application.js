@@ -5,4 +5,6 @@ import "controllers"
 import "./jquery";
 import "jquery_ujs"
 import "./jquery_ui"
+//= require moment
+//= require daterangepicker
 console.log($.ui)

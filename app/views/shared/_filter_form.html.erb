@@ -1,0 +1,7 @@
+<%= form_for(:search, url: posts_path, method: :get) do |form| %>
+  <div>
+    <%= form.label :date %>
+    <%= form.text_field :date, placeholder:"mm/dd/yy - mm/dd/yy", value: "09-06-2023 - 09-07-2023"%>
+  </div>
+  <%= form.submit "Show Results"%>
+<% end %>

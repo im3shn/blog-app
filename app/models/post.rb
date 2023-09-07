@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   validates :headline, presence: true, length: {maximum: 20}
   validates :content, presence: true
 
+  scope :having_date_between, ->(start_date, end_date) { where(created_at: start_date..end_date) }
 
   def self.tagged_with(name)
     Tag.find_by(name: name).posts
@@ -24,4 +25,5 @@ class Post < ApplicationRecord
   def self.post_read_status(post, current_user)
     post.users.include?(current_user) ? 'Read': 'Unread'
   end
+
 end

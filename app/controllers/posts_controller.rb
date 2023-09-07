@@ -6,7 +6,11 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    if params[:tag]
+    if params[:search] && params[:search][:date].present?
+      start_date, end_date = params[:search][:date].split(' - ')
+      @pagy, @posts = pagy(Post.having_date_between(start_date, end_date))
+      puts @posts.count
+    elsif params[:tag]
       @pagy, @posts = pagy(Post.tagged_with(params[:tag]))
     elsif params[:topic_id].present?
       @pagy, @posts = pagy(@topic.posts.includes(:users))

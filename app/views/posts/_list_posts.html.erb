@@ -1,4 +1,4 @@
-
+<%= render 'shared/filter_form'%>
 <h1><%=Post.post_topic(@topic) %> Posts</h1>
 
 <div id="posts">
@@ -18,5 +18,7 @@
 <div>
   <%= pagy_nav(@pagy).html_safe%>
 </div>
+
+
 
 

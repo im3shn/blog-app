@@ -81,3 +81,5 @@ gem 'cancancan'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bullet', group: 'development'
+gem 'momentjs-rails' # dependency of daterangepicker
+gem 'bootstrap-daterangepicker-rails'
