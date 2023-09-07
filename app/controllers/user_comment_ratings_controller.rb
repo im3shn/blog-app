@@ -4,8 +4,8 @@ class UserCommentRatingsController < ApplicationController
 
   # GET /user_comment_ratings or /user_comment_ratings.json
   def index
-    @users = User.all
-    @user_comment_ratings = @comment.user_comment_ratings
+    @users = User.all.includes([:user_comment_ratings])
+    # @user_comment_ratings = @comment.user_comment_ratings
   end
 
   # GET /user_comment_ratings/1 or /user_comment_ratings/1.json

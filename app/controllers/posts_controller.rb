@@ -9,9 +9,9 @@ class PostsController < ApplicationController
     if params[:tag]
       @pagy, @posts = pagy(Post.tagged_with(params[:tag]))
     elsif params[:topic_id].present?
-      @pagy, @posts = pagy(@topic.posts)
+      @pagy, @posts = pagy(@topic.posts.includes(:users))
     else
-      @pagy, @posts = pagy(Post.all)
+      @pagy, @posts = pagy(Post.includes(:topic, :users).all)
     end
   end
 

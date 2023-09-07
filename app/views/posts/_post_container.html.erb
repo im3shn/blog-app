@@ -1,5 +1,5 @@
 <p>
-  <%= Post.post_read_status(post, current_user) %>
+  <%= post.users.include?(current_user) %>
 </p>
 <p>
   <strong>Headline:</strong>
