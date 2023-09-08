@@ -26,4 +26,14 @@ class Post < ApplicationRecord
     post.users.include?(current_user) ? 'Read': 'Unread'
   end
 
+  # def self.avg_rating(post="")
+  #   if post.ratings.present?
+  #     (post.ratings.average(:value)).round(1)
+  #   else
+  #     0
+  #   end
+  # end
+
+
+
 end

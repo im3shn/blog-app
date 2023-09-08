@@ -10,4 +10,15 @@
   <strong>Content:</strong>
   <%= truncate post.content,length: 50, omission: '...Read More' %>
 </p>
-<%=link_to "Show this post" , topic_post_path(post.topic, post)%>
+
+<p>
+  <strong>Avg Rating:</strong>
+  <%=post.rating_average %>
+</p>
+<p>
+  <strong>Comments:</strong>
+  <%=post.comments_count %>
+</p>
+<p>
+  <%= link_to "Show this post", topic_post_path(post.topic, post) %>
+</p>

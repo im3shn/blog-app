@@ -14,7 +14,6 @@
  *= require_self
  */
 @import "jquery-ui.css";
-@import "daterangepicker.css";
 
 #loader{
     position: fixed;

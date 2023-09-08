@@ -18,6 +18,10 @@
 <!--comments-->
 <div>
   <div>
+    <p>
+      <strong>Comments:</strong>
+      <%=@post.comments.size %>
+    </p>
     <% @post.comments.each do |comment| %>
       <div><%= link_to comment.content ,
                   topic_post_comment_path(params[:topic_id], @post, comment) %>|-
@@ -41,8 +45,13 @@
     %>
 </small>
 
+
 <!--ratings-->
 <span>
+  <p>
+  <strong>Avg Rating:</strong>
+    <%=@post.rating_average %>
+</p>
     <%@post.ratings.group(:value).count.each do |key, value| %>
       <p><%= key %> star present <%= value %> times</p>
     <% end %>
