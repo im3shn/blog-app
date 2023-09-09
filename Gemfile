@@ -64,6 +64,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'bullet'
+  gem 'letter_opener'
 end
 
 group :test do
@@ -80,6 +82,5 @@ gem 'devise'
 gem 'cancancan'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'bullet', group: 'development'
 gem 'momentjs-rails' # dependency of daterangepicker
 gem 'bootstrap-daterangepicker-rails'

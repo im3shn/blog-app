@@ -1,8 +1,10 @@
 module ApplicationHelper
   include Pagy::Frontend
-  def dob_from_parameters
+  def date_from_parameters
     if params[:search].present?
-      params[:search][:dob]
+      params[:search][:date]
+    else
+      Date.yesterday.strftime("%m-%d-%Y").concat(" - ").concat(Date.today.strftime("%m-%d-%Y"))
     end
   end
 end
