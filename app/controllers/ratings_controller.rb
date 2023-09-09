@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+
   before_action :set_topic
   before_action :set_post
   before_action :set_rating, only: %i[ show edit update destroy ]

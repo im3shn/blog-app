@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   before_action :set_topic
   before_action :set_post
   before_action :set_comment, only: %i[ show edit update destroy ]
