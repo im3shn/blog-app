@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_09_09_110500) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -41,10 +44,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_09_110500) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.integer "post_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -52,10 +55,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_09_110500) do
   create_table "posts", force: :cascade do |t|
     t.string "headline"
     t.text "content"
-    t.integer "topic_id", null: false
+    t.bigint "topic_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "comments_count", default: 0, null: false
     t.decimal "rating_average", precision: 2, scale: 1, default: "0.0", null: false
     t.index ["topic_id"], name: "index_posts_on_topic_id"
@@ -63,20 +66,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_09_110500) do
   end
 
   create_table "posts_tags", id: false, force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "tag_id", null: false
+    t.bigint "post_id", null: false
+    t.bigint "tag_id", null: false
     t.index ["tag_id", "post_id"], name: "index_posts_tags_on_tag_id_and_post_id"
   end
 
   create_table "posts_users", id: false, force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "post_id", null: false
+    t.bigint "user_id", null: false
     t.index ["post_id", "user_id"], name: "index_posts_users_on_post_id_and_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
     t.integer "value"
-    t.integer "post_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_ratings_on_post_id"
@@ -96,8 +99,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_09_110500) do
 
   create_table "user_comment_ratings", force: :cascade do |t|
     t.integer "value"
-    t.integer "comment_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "comment_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["comment_id"], name: "index_user_comment_ratings_on_comment_id"
