@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
-        CrudNotificationMailer.create_notification(@post).deliver_now
+        # CrudNotificationMailer.create_notification(@post).deliver_now
         format.html { redirect_to topic_post_url(@topic,@post), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
         format.js
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        CrudNotificationMailer.update_notification(@post).deliver_now
+        # CrudNotificationMailer.update_notification(@post).deliver_now
         format.html { redirect_to topic_post_url(@topic,@post), notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -68,7 +68,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    CrudNotificationMailer.delete_notification(@post).deliver_now
+    # CrudNotificationMailer.delete_notification(@post).deliver_now
     @post.destroy
     respond_to do |format|
       format.html { redirect_to topic_posts_url(@topic), notice: "Post was successfully destroyed." }
